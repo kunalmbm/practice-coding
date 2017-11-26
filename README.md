@@ -1,2 +1,2 @@
 # practice-coding
-Used to store the practice coding examples
+Used to store the practice coding examples for java
