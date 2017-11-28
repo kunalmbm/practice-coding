@@ -52,5 +52,32 @@ public class Queue {
 	public boolean isEmpty() {
 		return first == null;
 	}
+	
+	private static void printQueue(Queue queue) {
+		
+		Node head = queue.first;
+		System.out.print("queue: (start->end) ");
+		while(head!=null){
+			System.out.printf("-> %d", head.data);
+			head = head.next;
+		}
+		System.out.println();
 
+	}
+
+	public static void main(String[] args) {
+		
+		Queue q = new Queue();
+		Queue.printQueue(q);
+		//q.remove();
+		
+		q.add(1);
+		q.add(2);
+		Queue.printQueue(q);
+		System.out.println("Removed : " + q.remove());
+		System.out.println("peek : " + q.peek());
+		Queue.printQueue(q);
+		q.add(3);
+		Queue.printQueue(q);
+	}
 }
