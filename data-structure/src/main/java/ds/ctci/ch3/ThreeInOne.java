@@ -6,7 +6,7 @@ public class ThreeInOne {
 	private static final int TWO = 1;
 	private static final int THREE = 2;
 
-	private class Stack {
+	private static class Stack {
 
 		private class Node {
 			public int data;
@@ -239,10 +239,8 @@ public class ThreeInOne {
 	
 	public static void main(String[] args) {
 		
-		ThreeInOne obj = new ThreeInOne();
-		Stack stack = obj.new Stack(4);
+		Stack stack = new Stack(4);
 
-		
 		stack.printAllStacks();
 		
 		System.out.println("S1: isEmpty : " + stack.isEmpty(ONE));
