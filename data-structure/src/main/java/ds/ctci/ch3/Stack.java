@@ -42,7 +42,7 @@ public class Stack {
 		return top == null;
 	}
 	
-	private static void printStack(Stack stack) {
+	public static void printStack(Stack stack) {
 		
 		Node head = stack.top;
 		System.out.print("top ");
