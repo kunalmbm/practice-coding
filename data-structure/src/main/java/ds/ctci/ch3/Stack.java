@@ -30,7 +30,7 @@ public class Stack {
 		return item;
 	}
 	
-	public int peek() {
+	public int peak() {
 		if(top == null)
 			throw new RuntimeException("Empty stack exception");
 		
@@ -42,7 +42,7 @@ public class Stack {
 		return top == null;
 	}
 	
-	private static void printStack(Stack stack) {
+	public static void printStack(Stack stack) {
 		
 		Node head = stack.top;
 		System.out.print("top ");
@@ -67,7 +67,7 @@ public class Stack {
 		System.out.println(stack.pop());
 		
 		Stack.printStack(stack);
-		System.out.println(stack.peek());
+		System.out.println(stack.peak());
 		Stack.printStack(stack);
 		
 		System.out.println(stack.isEmpty());
