@@ -34,9 +34,9 @@ public class SortStack {
 		stack.push(134);
 		stack.push(99);
 		
-		Stack.printStack(stack);
+		stack.printStack();
 		sortStack(stack);
-		Stack.printStack(stack);
+		stack.printStack();
 	}
 
 }

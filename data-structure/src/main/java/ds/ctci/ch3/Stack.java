@@ -42,9 +42,9 @@ public class Stack {
 		return top == null;
 	}
 	
-	public static void printStack(Stack stack) {
+	public void printStack() {
 		
-		Node head = stack.top;
+		Node head = top;
 		System.out.print("top ");
 		while(head!=null){
 			System.out.printf("-> %d", head.data);
@@ -63,12 +63,12 @@ public class Stack {
 		stack.push(3);
 		stack.push(4);
 		
-		Stack.printStack(stack);
+		stack.printStack();
 		System.out.println(stack.pop());
 		
-		Stack.printStack(stack);
+		stack.printStack();
 		System.out.println(stack.peak());
-		Stack.printStack(stack);
+		stack.printStack();
 		
 		System.out.println(stack.isEmpty());
 	}
