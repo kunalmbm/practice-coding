@@ -19,6 +19,28 @@ public class Stack {
 		top = node;
 	}
 	
+	public int popBottom() {
+		if(top == null)
+			throw new RuntimeException("Empty stack exception");
+
+		if(top.next == null) {
+			int item = top.data;
+			top = null;
+			return item;
+		}
+		
+		Node node = top;
+		while(node.next.next!=null){
+			node = node.next;
+		}
+		
+		int item = node.next.data;
+		node.next = null;
+		
+		return item;
+
+	}
+	
 	public int pop() {
 		
 		if(top == null)
