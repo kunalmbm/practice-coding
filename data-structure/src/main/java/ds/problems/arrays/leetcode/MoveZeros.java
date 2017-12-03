@@ -3,8 +3,6 @@ package ds.problems.arrays.leetcode;
 import java.util.Arrays;
 import java.util.Scanner;
 
-import junit.runner.Sorter.Swapper;
-
 public class MoveZeros {
 	
 	public static void main(String[] args) {
