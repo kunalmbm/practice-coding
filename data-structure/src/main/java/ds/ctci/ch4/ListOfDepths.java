@@ -1,41 +1,53 @@
 package ds.ctci.ch4;
+import java.util.*;
 
 public class ListOfDepths {
 	
-	ListNode[] A = new ListNode[0];
-	
-	void ensureSize(int size) {
-		if(size > A.length) {
-			ListNode[] A2 = new ListNode[size];
-			for(int i =0; i < A.length ; i++)
-				A2[i] = A[i];
-			A = A2;
-		}
-	}
-	
-	private void addToList(int d, int val) {
-		ListNode node = new ListNode(val);
-		ensureSize(d+1);
-		node.next = A[d];
-		A[d] = node;
-		return;
-	}
-	
-	public ListNode[] getListOfDepths(TreeNode tree) {
-		prepare(tree,0);
-		return A;
+
+	public ArrayList<ArrayList<TreeNode>> getListOfDepths(TreeNode tree) {
+		
+		ArrayList<ArrayList<TreeNode>> result = new ArrayList<ArrayList<TreeNode>>();
+		prepareDFS(tree,0,result);
+		return result;
 		
 	}
 	
-	private void prepare(TreeNode tree, int d) {
+	public ArrayList<ArrayList<TreeNode>> getListOfDepthsBFS(TreeNode tree) {
+		ArrayList<ArrayList<TreeNode>> result = new ArrayList<ArrayList<TreeNode>>();
+		ArrayList<TreeNode> current = new ArrayList<TreeNode>();
+		if(tree!=null)
+			current.add(tree);
+		
+		while(current.size()>0) {
+			result.add(current);
+			ArrayList<TreeNode> parents = current;
+			current = new ArrayList<TreeNode>();
+			for(TreeNode parent : parents) {
+				if(parent.left!=null)
+					current.add(parent.left);
+				if(parent.right!=null)
+					current.add(parent.right);
+			}
+		}
+		
+		return result;
+	}
+	
+	private void prepareDFS(TreeNode tree, int d, ArrayList<ArrayList<TreeNode>> result) {
 		
 		if(tree == null)
 			return;
+
+		ArrayList<TreeNode> list;
+		if(d == result.size()) {
+			list = new ArrayList<TreeNode>();
+			result.add(list);
+		} else 
+			list = result.get(d);
 		
-		prepare(tree.right,d+1);
-		prepare(tree.left,d+1);
-		addToList(d,tree.val);
-		
+		list.add(tree);
+		prepareDFS(tree.left,d+1,result);
+		prepareDFS(tree.right,d+1,result);
 	}
 	
 	public static void main(String[] args) {
@@ -53,9 +65,11 @@ public class ListOfDepths {
 		root.right.left = new TreeNode(50);
 		root.right.right = new TreeNode(16);
 		
-		ListNode[] A = obj.getListOfDepths(root);
-		for(ListNode node : A)
-			ListNode.printList(node);
+		ArrayList<ArrayList<TreeNode>> result = obj.getListOfDepths(root);
+		//result = obj.getListOfDepthsBFS(root);
+		for(ArrayList<TreeNode> list : result) {
+			System.out.println(list);
+		}
 	}
 
 }
