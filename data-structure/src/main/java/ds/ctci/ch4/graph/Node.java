@@ -6,6 +6,7 @@ import java.util.List;
 public class Node {
 	
 	int id = 0;
+	int inEdgeCount = 0;
 	String name = "";
 	State state = State.Unvisisted;
 	List<Node> adjacent = new ArrayList<Node>();
