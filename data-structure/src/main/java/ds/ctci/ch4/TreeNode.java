@@ -3,7 +3,7 @@ package ds.ctci.ch4;
 public class TreeNode {
 	
 	int val;
-	TreeNode left,right;
+	TreeNode left,right,parent;
 	public TreeNode(int value) {
 		val = value;
 	}
